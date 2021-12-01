@@ -1,13 +1,14 @@
 /// <reference types="cypress" />
 
-export function navigate() {
-  cy.visit('http://todomvc-app-for-testing.surge.sh/')
+export function navigateToHomePage() {
+  cy.visit('https://www.tmsandbox.co.nz/')
 }
 
 export function logInButtonPresentWithText(loginText){
   cy.get("[id='LoginLink']").should('have.text',loginText)
   
 }
+
 export function addTodo(todoText) {
   cy.get('.new-todo').type(todoText + '{enter}')
 }
