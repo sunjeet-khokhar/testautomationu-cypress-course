@@ -1,13 +1,38 @@
 /// <reference types="cypress" />
 
+const BaseURL = 'https://www.tmsandbox.co.nz/'
+const LogInButton = "[id='LoginLink']"
+const LogInButtonOnLoginPage = "[id='LoginPageButton']"
+const UsedCarsPage = 'https://www.tmsandbox.co.nz/motors/used-cars'
+const usedCarPageTableId = 'makes'
+
 export function navigateToHomePage() {
-  cy.visit('https://www.tmsandbox.co.nz/')
+  cy.visit(BaseURL)
 }
 
 export function logInButtonPresentWithText(loginText){
-  cy.get("[id='LoginLink']").should('have.text',loginText)
+  cy.get(LogInButton).should('have.text',loginText)
   
 }
+
+export function getAllUsedCarBrandNames(){
+  cy.visit(UsedCarsPage)
+  //const text = cy.get("[id='makes'").find('tr').find('td').invoke('prop','innerText')
+  cy.get("[id='"+usedCarPageTableId+"'").find('tr').find('td').each(t => {
+    console.log(t.prop('innerText'))
+    //console.log(t.attr('class'))
+    console.log(t.find('.count').prop('innerText'))
+  })
+}
+
+export function clickLogInButton(){
+  cy.get(LogInButton).click()
+}
+
+export function LoginPageLoginButton(){
+  return(cy.get(LogInButtonOnLoginPage))
+}
+
 
 export function addTodo(todoText) {
   cy.get('.new-todo').type(todoText + '{enter}')
