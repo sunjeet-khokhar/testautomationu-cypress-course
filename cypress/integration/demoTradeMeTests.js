@@ -13,7 +13,8 @@ import  {
 import {
   verifyListingAskingPrice,
   navigateToaListing,
-  verifyLocationofListing
+  verifyLocationofListing,
+  verifyNumberofImagesOnListing
 } from '../page-objects/ListingsPage'
 
 /*describe('todo actions', () => {
@@ -34,7 +35,7 @@ import {
     clickLogInButton()
     var out = LoginPageLoginButton()
     //console.log(out)
-    expect(LoginPageLoginButton).to.be.notnull
+    expect(out).to.be.notnull
   })
 
   it('should be able to rtrieve all the brand \
@@ -54,5 +55,9 @@ import {
     verifyLocationofListing("Christchur­ch")
   })
 
+  it ('should be able to verify the number of images on the listing', () => {
+    navigateToaListing('https://www.tmsandbox.co.nz/property/new-apartment/auction-2149340786.htm')
+    verifyNumberofImagesOnListing(3)
+  })
 
 //})

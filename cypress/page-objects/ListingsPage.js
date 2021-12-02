@@ -27,3 +27,11 @@ export function verifyLocationofListing(city) {
     console.log(elem.prop('innerText'))
     })
 }
+
+export function verifyNumberofImagesOnListing(count){
+  cy.get("[id='OtherPhotosContainer']").find('ul').then(elem => {
+      console.log(elem.prop('childElementCount'))
+      expect(elem.prop('childElementCount')).to.equal(count)
+  })
+
+}
