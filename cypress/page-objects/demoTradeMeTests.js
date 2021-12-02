@@ -15,8 +15,11 @@ export function logInButtonPresentWithText(loginText){
   
 }
 
-export function getAllUsedCarBrandNames(){
+export function visitUsedCarsPage(){
   cy.visit(UsedCarsPage)
+}
+
+export function getAllUsedCarBrandNames(){
   //const text = cy.get("[id='makes'").find('tr').find('td').invoke('prop','innerText')
   cy.get("[id='"+usedCarPageTableId+"'").find('tr').find('td').each(t => {
     console.log(t.prop('innerText'))

@@ -5,9 +5,16 @@ import  {
   clickLogInButton,
   checkLoginPageForLoginButton,
   LoginPageLoginButton,
-  getAllUsedCarBrandNames
+  getAllUsedCarBrandNames,
+  visitUsedCarsPage
 
 } from '../page-objects/demoTradeMeTests';
+
+import {
+  verifyListingAskingPrice,
+  navigateToaListing,
+  verifyLocationofListing
+} from '../page-objects/ListingsPage'
 
 /*describe('todo actions', () => {
   beforeEach(() => {
@@ -28,9 +35,24 @@ import  {
     var out = LoginPageLoginButton()
     //console.log(out)
     expect(LoginPageLoginButton).to.be.notnull
+  })
+
+  it('should be able to rtrieve all the brand \
+  names of the cars on the use cars page',() => {
+    visitUsedCarsPage()
     getAllUsedCarBrandNames()
   })
 
+  it('should be able to get price for an item \
+  and compare it against an expected price',() => {
+    navigateToaListing('https://www.tmsandbox.co.nz/property/new-apartment/auction-2149340786.htm')
+    verifyListingAskingPrice("$12,312,312")
+  })
+
+  it('should be able to verify the city of the listing',() => {
+    navigateToaListing('https://www.tmsandbox.co.nz/property/new-apartment/auction-2149340786.htm')
+    verifyLocationofListing("Christchur­ch")
+  })
 
 
 //})
