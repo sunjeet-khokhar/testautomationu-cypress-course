@@ -11,7 +11,8 @@ export function verifyListingAskingPrice(str) {
 }
 
 export function verifyLocationofListing(city) {
-  cy.get("[id='ListingAttributes'").find('tr').each(t => {
+
+  cy.get("[id='ListingAttributes'").find('tr').then(t => {
     let text = t.prop('innerText')
     const propertyInfo = String(text).split(':')
     if (propertyInfo[0]=='Location') {
@@ -20,4 +21,9 @@ export function verifyLocationofListing(city) {
         expect(propertyInfo[1]).to.contain(city)
     }
   })
+
+  //another subtly neater(w.r.t to above)  way to extract the location content from the table
+  cy.get("[id='ListingAttributes'").contains('tr', 'Location').find('td').then(elem => {
+    console.log(elem.prop('innerText'))
+    })
 }
