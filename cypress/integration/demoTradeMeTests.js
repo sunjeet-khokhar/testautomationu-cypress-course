@@ -17,12 +17,10 @@ import {
   verifyNumberofImagesOnListing
 } from '../page-objects/ListingsPage'
 
-/*describe('todo actions', () => {
+describe('TradeMe sandbox site tests', () => {
   beforeEach(() => {
-    navigate()
-
-    addTodo('Clean room')
-  })*/
+  
+  })
 
   it('should navigate to TradeMe sandbox homepage and be presented with \
   login button ', () => {
@@ -60,4 +58,4 @@ import {
     verifyNumberofImagesOnListing(3)
   })
 
-//})
+})

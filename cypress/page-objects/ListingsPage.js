@@ -34,4 +34,6 @@ export function verifyNumberofImagesOnListing(count){
       expect(elem.prop('childElementCount')).to.equal(count)
   })
 
+  // or fiind the list directly by id and assert on it's length
+  cy.get("[id='thumbs'] > li").should('have.length',count)
 }
