@@ -14,10 +14,12 @@ import {
   verifyListingAskingPrice,
   navigateToaListing,
   verifyLocationofListing,
-  verifyNumberofImagesOnListing
+  verifyNumberofImagesOnListing,
+  ListingsPage
 } from '../page-objects/ListingsPage'
 
 describe('TradeMe sandbox site tests', () => {
+  const listing = new ListingsPage()
   beforeEach(() => {
   
   })
@@ -44,18 +46,18 @@ describe('TradeMe sandbox site tests', () => {
 
   it('should be able to get price for an item \
   and compare it against an expected price',() => {
-    navigateToaListing('https://www.tmsandbox.co.nz/property/new-apartment/auction-2149340786.htm')
-    verifyListingAskingPrice("$12,312,312")
+    listing.navigateToaListing('https://www.tmsandbox.co.nz/property/new-apartment/auction-2149340786.htm')
+    listing.verifyListingAskingPrice("$12,312,312")
   })
 
   it('should be able to verify the city of the listing',() => {
-    navigateToaListing('https://www.tmsandbox.co.nz/property/new-apartment/auction-2149340786.htm')
-    verifyLocationofListing("Christchur­ch")
+    listing.navigateToaListing('https://www.tmsandbox.co.nz/property/new-apartment/auction-2149340786.htm')
+    listing.verifyLocationofListing("Christchur­ch")
   })
 
   it ('should be able to verify the number of images on the listing', () => {
-    navigateToaListing('https://www.tmsandbox.co.nz/property/new-apartment/auction-2149340786.htm')
-    verifyNumberofImagesOnListing(3)
+    listing.navigateToaListing('https://www.tmsandbox.co.nz/property/new-apartment/auction-2149340786.htm')
+    listing.verifyNumberofImagesOnListing(3)
   })
 
 })
